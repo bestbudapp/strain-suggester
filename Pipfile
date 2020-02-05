@@ -1,0 +1,18 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+flake8 = "*"
+
+[packages]
+flask = "*"
+joblib = "*"
+python-dotenv = "*"
+scikit-learn = "==0.21.3"
+pandas = "*"
+gunicorn = "*"
+
+[requires]
+python_version = "3.7"
