@@ -12,7 +12,7 @@ tfidf = load('assets/tfidf.pkl')
 def suggest_strains(input):
     """
     Generate strain suggestions from user input.
-    Inputs a string of text, and outputs a string of 5 strains.
+    Inputs JSON, outputs a bracketed string of 5 strains.
     """
     series_input = pd.Series(input)
     vect_input = tfidf.transform(series_input)
