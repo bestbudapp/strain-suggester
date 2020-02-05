@@ -1,6 +1,6 @@
 # Imports
 from dotenv import load_dotenv
-from flask import Flask, request  # jsonify
+from flask import Flask, request
 from .predict import suggest_strains
 
 # Initialize .env file
@@ -25,9 +25,10 @@ def create_app():
         Generate strain suggestion from user input.
         Output JSON with 5 strain suggestions.
         """
-        input = request.values['input']
+        input = request.get_json(force=True)
         suggestion = suggest_strains(input)[0]
         return str(suggestion)
+
 # Deprecated format to convert to JSON
         # return jsonify(
         #     strain1=str(suggestion[0][0]),
