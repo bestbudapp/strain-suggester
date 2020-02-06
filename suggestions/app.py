@@ -23,7 +23,7 @@ def create_app():
     def suggest():
         """
         Generate strain suggestion from user input.
-        Output JSON with 5 strain suggestions.
+        Output space-separated string with 5 strain suggestions.
         """
         input = request.get_json(force=True)
         suggestion = suggest_strains(input)[0]

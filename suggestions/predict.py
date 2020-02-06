@@ -16,5 +16,6 @@ def suggest_strains(input):
     """
     series_input = pd.Series(input)
     vect_input = tfidf.transform(series_input)
-    score, recommended_strains = nn.kneighbors(vect_input.todense())
+    df = pd.DataFrame(vect_input.todense())
+    score, recommended_strains = nn.kneighbors(df)
     return recommended_strains
