@@ -6,7 +6,7 @@ from .predict import suggest_strains
 # Initialize .env file
 load_dotenv()
 
-# Insert debugger for development debugging
+# Insert debugger for optional development debugging
 # import pdb; pdb.set_trace()
 
 
@@ -16,7 +16,7 @@ def create_app():
 
     @app.route('/')
     def root():
-        """ Generate text for landing page just for fun. """
+        """ Generate text for landing page. """
         return '<h2>API Landing Page.</h2>'
 
     @app.route('/suggest', methods=['POST'])

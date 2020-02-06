@@ -9,6 +9,7 @@ nn = load('assets/baseline_compressed.pkl')
 tfidf = load('assets/tfidf.pkl')
 
 
+# Define prediction function
 def suggest_strains(input):
     """
     Generate strain suggestions from user input.
