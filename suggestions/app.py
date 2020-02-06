@@ -27,7 +27,8 @@ def create_app():
         """
         input = request.get_json(force=True)
         suggestion = suggest_strains(input)[0]
-        return str(suggestion)
+        string_suggestion = " ".join(str(i) for i in suggestion)
+        return string_suggestion
 
 # Deprecated format to convert to JSON
         # return jsonify(
