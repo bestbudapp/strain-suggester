@@ -1,7 +1,7 @@
 # Imports
 from dotenv import load_dotenv
 from flask import Flask, request
-from .predict import suggest_strains
+from .predict import Suggester
 
 # Initialize .env file
 load_dotenv()
@@ -22,22 +22,15 @@ def create_app():
     @app.route('/suggest', methods=['POST'])
     def suggest():
         """
-        Generate strain suggestion from user input.
+        Generate strain suggestion from user input as JSON.
         Output space-separated string with 5 strain suggestions.
         """
         input = request.get_json(force=True)
-        suggestion = suggest_strains(input)[0]
+        suggester = Suggester()
+        suggestion = suggester.strain_suggester(input["input"])
         string_suggestion = " ".join(str(i) for i in suggestion)
-        return string_suggestion
 
-# Deprecated format to convert to JSON
-        # return jsonify(
-        #     strain1=str(suggestion[0][0]),
-        #     strain2=str(suggestion[0][1]),
-        #     strain3=str(suggestion[0][2]),
-        #     strain4=str(suggestion[0][3]),
-        #     strain5=str(suggestion[0][4])
-        #     )
+        return string_suggestion
 
     @app.route('/test')
     def test():
